@@ -12,7 +12,7 @@ public class DBMensaje {
 
     public DBMensaje() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banco", "root", "Valencia9562??");
+            connection = DriverManager.getConnection("jdbc:mysql://uhrcja8gdyt99akt:zUYalrZHMAG08E9lrFc4@b5sgogoij9blju0wicti-mysql.services.clever-cloud.com:3306/b5sgogoij9blju0wicti", "uhrcja8gdyt99akt", "zUYalrZHMAG08E9lrFc4");
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
