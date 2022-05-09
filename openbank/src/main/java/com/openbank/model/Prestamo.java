@@ -54,7 +54,9 @@ public class Prestamo {
         this.meses = meses;
     }
 
-    
+    public String toString() {
+        return "PrestamoID: " + id + ", Nombre: " + nombre + ", Comision: " + comision + ", Meses: " + meses + "\n" ;
+    }
     
     
 }

@@ -54,6 +54,9 @@ public class Gestor {
         this.correo = correo;
     }
 
+    public String toString() {
+        return "Gestor: " + id + ", Usuario: " + usuario + ", Correo: " + correo + "\n";
+    }
     
     
 }

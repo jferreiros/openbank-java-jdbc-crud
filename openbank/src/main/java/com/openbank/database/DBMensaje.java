@@ -1,14 +1,10 @@
 package com.openbank.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.sql.*;
+import java.util.*;
+import com.openbank.utils.*;
 
 import com.openbank.model.Mensaje;
-import com.openbank.utils.Console;
 
 public class DBMensaje {
 
@@ -26,7 +22,7 @@ public class DBMensaje {
 
         try {
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO mensaje(id_origen, id_destino, texto, fecha) VALUES (?,?,?,?)");
+                    "INSERT INTO mensaje(id_origen, id_destino, texto, fecha) VALUES (?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, mensaje.getId_origen());
             statement.setInt(2, mensaje.getId_destino());
             statement.setString(3, mensaje.getTexto());
@@ -52,7 +48,7 @@ public class DBMensaje {
     public void getMensaje(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM mensaje WHERE id=?");
-            statement.setInt(4, id);
+            statement.setInt(1, id);
             ResultSet results = statement.executeQuery();
             ArrayList<Mensaje> mensajes = new ArrayList<Mensaje>();
 

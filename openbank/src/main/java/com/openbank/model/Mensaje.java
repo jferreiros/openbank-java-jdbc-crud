@@ -1,7 +1,6 @@
 package com.openbank.model;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
 
 
 public class Mensaje {
@@ -67,6 +66,10 @@ public class Mensaje {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public String toString() {
+        return "MensajeID: " + id + ", Emisor: " + id_origen + ", Receptor: " + id_destino + "\n" + "Texto: " + texto + ", Fecha: " + fecha;
     }
 
 }

@@ -77,7 +77,7 @@ public class Cliente {
     }
 
     public String toString() {
-        return usuario + ", " + correo + "\n";
+        return "Cliente: " + id + ", Usuario: " + usuario + ", Correo: " + correo + "\n";
     }
     
 }

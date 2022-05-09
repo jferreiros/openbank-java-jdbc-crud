@@ -27,7 +27,7 @@ public class DBTransferencia {
 
         try {
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO transferencia(id_ordenante, id_beneficiario, importe, concepto, fecha) VALUES (?,?,?,?,?)");
+                    "INSERT INTO transferencia(id_ordenante, id_beneficiario, importe, concepto, fecha) VALUES (?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, transferencia.getId_ordenante());
             statement.setInt(2, transferencia.getId_beneficiairo());
             statement.setFloat(3, transferencia.getImporte());
@@ -54,7 +54,7 @@ public class DBTransferencia {
     public void getTransferencia(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM transferencia WHERE id=?");
-            statement.setInt(4, id);
+            statement.setInt(1, id);
             ResultSet results = statement.executeQuery();
             ArrayList<Transferencia> transferencia = new ArrayList<Transferencia>();
 

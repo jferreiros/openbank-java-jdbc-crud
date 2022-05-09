@@ -196,6 +196,7 @@ public final class App {
                         String correo = lector.next();
 
                         Gestor gestor = new Gestor(id, usuario, password, correo);
+                        dbGestor.updateGestor(gestor);
                         System.out.println("----------\n" + "Gestor actualizado: " + gestor + "----------");
 
                     } else if (opcionSubmenu == 5) {
@@ -303,9 +304,11 @@ public final class App {
                         System.out.print("Introduce el concepto: ");
                         String concepto = lector.next();
 
-                        System.out.print("Introduce la fecha: ");
-                        String fechaComoTexto = lector.next();                        
-                        Date fecha = Date.valueOf(fechaComoTexto);
+                        // System.out.print("Introduce la fecha: ");
+                        // String fechaComoTexto = lector.next();                        
+                        // Date fecha = Date.valueOf(fechaComoTexto);
+
+                        java.sql.Date fecha = new java.sql.Date(Calendar.getInstance().getTime().getTime());
                          
                         // LocalDateTime fecha = java.time.LocalDateTime.now();               
 
@@ -320,8 +323,8 @@ public final class App {
                         System.out.print("Introduce el id: ");
                         int id = lector.nextInt();
 
+                        System.out.println("----------\n" + "Transferencia solicitada: " + "\n" + "----------");                        
                         dbTransferencia.getTransferencia(id);
-                        System.out.println("----------\n" + "Transferencia solicitada: " + "\n" + "----------");
 
                     } else if (opcionSubmenu == 3) {
                         System.out.println("----------\n" + "[3] - Ver todas las transferencias\n" + "----------");
@@ -332,8 +335,8 @@ public final class App {
                         System.out.print("Introduce el id: ");
                         int id = lector.nextInt();
 
-                        dbTransferencia.deleteTransferencia(id);
                         System.out.println("----------\n" + "Transferencia eliminada: " + "" + "----------");
+                        dbTransferencia.deleteTransferencia(id);
 
                     } else if (opcionSubmenu == 5) {
                         submenu = false;

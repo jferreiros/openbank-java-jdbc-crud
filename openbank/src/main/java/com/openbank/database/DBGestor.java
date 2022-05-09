@@ -61,7 +61,7 @@ public class DBGestor {
     public void getGestor(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM gestor WHERE id=?");
-            statement.setInt(4, id);
+            statement.setInt(1, id);
             ResultSet results = statement.executeQuery();
             ArrayList<Gestor> gestores = new ArrayList<Gestor>();
 

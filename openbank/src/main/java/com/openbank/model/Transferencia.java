@@ -1,7 +1,6 @@
 package com.openbank.model;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
 
 public class Transferencia {
     private int id;
@@ -79,7 +78,9 @@ public class Transferencia {
         this.fecha = fecha;
     }
     
-    
+    public String toString() {
+        return "TransferenciaID: " + id + ", Emisor: " + id_ordenante + ", Receptor: " + id_beneficiairo + "\n" + "Importe: $" + importe + ", Concepto: " + concepto + ", Fecha: " + fecha;
+    }
 
     
 }
